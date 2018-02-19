@@ -3,8 +3,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 
 @Component({
     selector: 'app-bin',
-    templateUrl: './bin.component.html',
-    styleUrls: ['./bin.component.scss']
+    templateUrl: './bin.component.html'
 })
 
 export class BinComponent implements OnInit, OnDestroy {

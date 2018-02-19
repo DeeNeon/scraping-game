@@ -19,7 +19,6 @@ export class RandomColorDirective implements OnInit, OnDestroy {
     }
     ngOnInit() {
         this.el.nativeElement.style.backgroundColor = RandomColorDirective.genColor();
-        console.log(this.el.nativeElement);
         this.binColorObs = Observable.interval(1000)
             .subscribe((x: any) => {
                 if (x % 40 === 0) {
