@@ -4,7 +4,7 @@ import 'rxjs/add/observable/interval';
 
 @Component({
     selector: 'app-timer',
-    template: '<h2>Change in: {{countDown}}s</h2>'
+    template: '<h2 class="bottom-timer">Change in: {{countDown}}s</h2>'
 })
 
 export class TimerComponent implements AfterContentInit, OnDestroy {

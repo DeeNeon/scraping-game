@@ -2,9 +2,19 @@
 
 body {
   padding: 2rem;
+  font-family: Arial, serif;
 }
 
 .bins-container {
   display: flex;
   justify-content: space-between;
+}
+
+.bottom-timer {
+  margin-top: 3rem;
+  float: right;
+}
+
+.score {
+  margin-bottom: 3rem;
 }
