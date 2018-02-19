@@ -1,5 +1,9 @@
 @import 'reset';
 
+body {
+  padding: 2rem;
+}
+
 .bins-container {
   display: flex;
   justify-content: space-between;

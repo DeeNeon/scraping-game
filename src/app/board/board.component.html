@@ -1,3 +1,7 @@
-<div *ngFor="let x of [1,2,3]" class="bins-container">
-    <app-bin></app-bin>
+<div class="bombs">
+    <app-bomb></app-bomb>
+</div>
+
+<div class="bins-container">
+    <app-bin *ngFor="let x of [1,2,3]"></app-bin>
 </div>

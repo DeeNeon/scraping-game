@@ -1,4 +1,4 @@
-import {NgModule, ModuleWithProviders} from '@angular/core';
+import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
 /* Shared components */
@@ -8,7 +8,6 @@ import {TimerComponent} from './timer.component';
 
 /* Directives*/
 import {RandomColorDirective} from './directives/random-color.directive';
-
 
 @NgModule({
     imports: [
@@ -31,10 +30,4 @@ import {RandomColorDirective} from './directives/random-color.directive';
 })
 
 export class SharedModule {
-    static forRoot(): ModuleWithProviders {
-        return <ModuleWithProviders>{
-            ngModule: SharedModule,
-            providers: []
-        };
-    }
 }
