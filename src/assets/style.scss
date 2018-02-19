@@ -1,12 +1,24 @@
 @import 'reset';
 @import 'variables';
 
+/* global */
+
 body {
+  min-height: 100%;
   padding: 2rem;
   font-family: Arial, serif;
 }
 
+/* UI */
+
+.board-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .bins-container {
+  margin-top: 5rem;
   display: flex;
   justify-content: space-between;
 }
@@ -17,7 +29,7 @@ body {
 }
 
 .bottom-timer {
-  margin-top: 3rem;
+  margin-top: 5rem;
   float: right;
 }
 
@@ -26,14 +38,25 @@ body {
 }
 
 .bombs-container {
+  padding: 3rem 0 0 0;
   display: flex;
+  flex: 1;
+  .y-axis {
+    width: 25%;
+  }
 }
 
 .bomb {
+  cursor: pointer;
   border-radius: 50%;
   width: 3.5rem;
   height: 3.5rem;
   position: relative;
+  transition: all .3s ease-in;
+  opacity: 1;
+  &:hover {
+    opacity: .8;
+  }
   span {
     position: absolute;
     top: 0;
@@ -47,4 +70,10 @@ body {
     font-size: 75%;
     text-align: center;
   }
+}
+
+.bomb-display-area {
+  position: relative;
+  width: 95%;
+  //border: 1px solid red;
 }

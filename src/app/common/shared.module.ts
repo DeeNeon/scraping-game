@@ -9,6 +9,7 @@ import {ScoreComponent} from './score.component';
 
 /* Directives*/
 import {RandomColorDirective} from './directives/random-color.directive';
+import {RandomPositionDirective} from './directives/random-position.directive';
 
 @NgModule({
     imports: [
@@ -19,7 +20,8 @@ import {RandomColorDirective} from './directives/random-color.directive';
         BombComponent,
         TimerComponent,
         ScoreComponent,
-        RandomColorDirective
+        RandomColorDirective,
+        RandomPositionDirective
     ],
     exports: [
         CommonModule,
@@ -27,7 +29,8 @@ import {RandomColorDirective} from './directives/random-color.directive';
         BombComponent,
         TimerComponent,
         ScoreComponent,
-        RandomColorDirective
+        RandomColorDirective,
+        RandomPositionDirective
     ],
     providers: []
 })

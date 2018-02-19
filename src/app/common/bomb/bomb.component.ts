@@ -4,7 +4,7 @@ import {Subscription} from 'rxjs/Subscription';
 
 @Component({
     selector: 'app-bomb',
-    template: `<div class="bomb" appRandomColor #bomb><span>{{durationLabel}}</span></div>`
+    template: `<div class="bomb-display-area"><div class="bomb" appRandomColor #bomb><span>{{durationLabel}}</span></div></div>`
 })
 
 export class BombComponent implements OnInit, OnDestroy {
@@ -26,7 +26,7 @@ export class BombComponent implements OnInit, OnDestroy {
             .subscribe(() => {
                 this.durationLabel--;
                 if (this.durationLabel === 0) {
-                    this.bomb.nativeElement.remove();
+                    //this.bomb.nativeElement.remove();
                 }
             });
     }

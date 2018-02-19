@@ -1,11 +1,15 @@
-<app-score></app-score>
+<div class="board-wrapper">
+    <app-score></app-score>
 
-<div class="bombs-container">
-    <app-bomb></app-bomb>
+    <section class="bombs-container">
+        <div class="y-axis" *ngFor="let x of [1,2,3,4]">
+            <app-bomb appRandomPosition *ngFor="let y of [1,2,3,4,5]"></app-bomb>
+        </div>
+    </section>
+
+    <section class="bins-container">
+        <app-bin *ngFor="let x of [1,2,3]"></app-bin>
+    </section>
+
+    <app-timer></app-timer>
 </div>
-
-<div class="bins-container">
-    <app-bin *ngFor="let x of [1,2,3]"></app-bin>
-</div>
-
-<app-timer></app-timer>
