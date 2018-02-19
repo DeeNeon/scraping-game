@@ -6,11 +6,13 @@ import {Subscription} from 'rxjs/Subscription';
     selector: 'app-bomb',
     template: `
     <div class="bomb-display-area">
-        <div class="bomb" appRandomPosition appBombHandler [is-draggable]="true" appRandomColor #bomb>
+        <div class="bomb" appRandomPosition appDrag [is-draggable]="true" [myDraggable]="{data: 'Draggable'}" appRandomColor #bomb>
             <span>{{durationLabel}}</span>
         </div>
     </div>`
 })
+
+// [is-draggable]="true"
 
 export class BombComponent implements OnInit, OnDestroy {
     lifeSpanObs: Subscription;
@@ -31,7 +33,7 @@ export class BombComponent implements OnInit, OnDestroy {
             .subscribe(() => {
                 this.durationLabel--;
                 if (this.durationLabel === 0) {
-                    //this.bomb.nativeElement.remove();
+                    // this.bomb.nativeElement.remove();
                 }
             });
     }

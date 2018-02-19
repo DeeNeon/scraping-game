@@ -9,7 +9,10 @@ import {TimerComponent} from './timer.component';
 /* Directives*/
 import {RandomColorDirective} from './directives/random-color.directive';
 import {RandomPositionDirective} from './directives/random-position.directive';
-import {BombHandlerDirective} from './directives/bomb-handler.directive';
+import {DragDirective} from './directives/drag.directive';
+import {DropDirective} from './directives/drop.directive';
+import {DragService} from './drag.service';
+
 
 @NgModule({
     imports: [
@@ -20,8 +23,9 @@ import {BombHandlerDirective} from './directives/bomb-handler.directive';
         BombComponent,
         TimerComponent,
         RandomColorDirective,
+        DragDirective,
         RandomPositionDirective,
-        BombHandlerDirective
+        DropDirective
     ],
     exports: [
         CommonModule,
@@ -29,10 +33,11 @@ import {BombHandlerDirective} from './directives/bomb-handler.directive';
         BombComponent,
         TimerComponent,
         RandomColorDirective,
+        DragDirective,
         RandomPositionDirective,
-        BombHandlerDirective
+        DropDirective
     ],
-    providers: []
+    providers: [DragService]
 })
 
 export class SharedModule {

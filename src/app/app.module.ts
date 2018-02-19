@@ -4,7 +4,7 @@ import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
 import {BoardComponent} from './board/board.component';
 
-import {SharedModule} from './common';
+import {SharedModule} from './common/shared.module';
 
 @NgModule({
   declarations: [
