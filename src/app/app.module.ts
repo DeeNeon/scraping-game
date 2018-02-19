@@ -2,20 +2,18 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
+import {BoardComponent} from './board/board.component';
 
-import {BinComponent} from './bin/bin.component';
-import {BombComponent} from './bomb/bomb.component';
-import {TimerComponent} from './common/timer.component';
+import {SharedModule} from './common';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BombComponent,
-    BinComponent,
-    TimerComponent
+    BoardComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

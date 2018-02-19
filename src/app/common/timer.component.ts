@@ -11,9 +11,7 @@ export class TimerComponent implements AfterContentInit, OnDestroy {
     countDown = 40;
     interval: any;
 
-    constructor() {}
     ngAfterContentInit() {
-
         this.interval = Observable.interval(1000)
             .subscribe(() => {
                 this.countDown--;
