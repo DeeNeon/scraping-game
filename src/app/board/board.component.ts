@@ -6,7 +6,11 @@ import {Component, OnDestroy} from '@angular/core';
 })
 
 export class BoardComponent implements OnDestroy {
+    score: 0;
     constructor() {}
     ngOnDestroy() {
+    }
+    onDrop(e: any) {
+        console.log(e);
     }
 }

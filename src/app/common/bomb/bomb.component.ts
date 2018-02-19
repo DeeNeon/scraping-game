@@ -4,7 +4,12 @@ import {Subscription} from 'rxjs/Subscription';
 
 @Component({
     selector: 'app-bomb',
-    template: `<div class="bomb-display-area"><div class="bomb" appRandomColor #bomb><span>{{durationLabel}}</span></div></div>`
+    template: `
+    <div class="bomb-display-area">
+        <div class="bomb" appRandomPosition appBombHandler [is-draggable]="true" appRandomColor #bomb>
+            <span>{{durationLabel}}</span>
+        </div>
+    </div>`
 })
 
 export class BombComponent implements OnInit, OnDestroy {
