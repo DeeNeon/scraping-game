@@ -1,6 +1,5 @@
 import {
     Directive,
-    ElementRef,
     EventEmitter,
     HostListener,
     Output,
@@ -11,15 +10,11 @@ import {
     selector: '[appDrop]'
 })
 export class DropDirective {
-    private options: any = {};
     constructor() {
     }
     @Output('drop') drop = new EventEmitter();
     @Input()
-    set appDrop(options: any) {
-        if (options) {
-            this.options = options;
-        }
+    set appDrop(args: any) {
     }
 
     @HostListener('dragenter', ['$event'])
@@ -28,11 +23,12 @@ export class DropDirective {
         event.preventDefault();
     }
 
-    @HostListener('window:drop', ['$event'])
-    onDrop(event) {
-        console.log('drop');
-        // const data =  JSON.parse(event.dataTransfer.getData('Text'));
-        //
-        this.drop.next(event);
+    @HostListener('drop', ['$event'])
+    onDrop(e: any) {
+        console.log(e);
+        // e.target.remove();
+        // console.log('onDrop directive: ', 1);
+        // this.drop.next(1);
+        // e.stopPropagation();
     }
 }

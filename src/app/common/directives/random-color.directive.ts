@@ -1,32 +1,31 @@
 import {
     Directive,
     ElementRef,
-    OnInit,
-    OnDestroy
+    Input,
+    OnChanges
 } from '@angular/core';
-import {Observable} from 'rxjs/Observable';
-import {Subscription} from 'rxjs/Subscription';
 
 @Directive({
     selector: '[appRandomColor]'
 })
-export class RandomColorDirective implements OnInit, OnDestroy {
-    private binColorObs: Subscription;
+export class RandomColorDirective implements OnChanges {
+    // private binColorObs: Subscription;
+    @Input()
+    shouldChange = false;
 
-    constructor(private el: ElementRef) {}
+    constructor(private el: ElementRef) {
+        this.el.nativeElement.style.backgroundColor = RandomColorDirective.genColor();
+    }
     static genColor() {
         return '#' + Math.floor(Math.random() * 16777215).toString(16);
     }
-    ngOnInit() {
+    changeColor() {
         this.el.nativeElement.style.backgroundColor = RandomColorDirective.genColor();
-        this.binColorObs = Observable.interval(1000)
-            .subscribe((x: any) => {
-                if (x % 40 === 0) {
-                    this.el.nativeElement.style.backgroundColor = RandomColorDirective.genColor();
-                }
-            });
     }
-    ngOnDestroy() {
-        this.binColorObs.unsubscribe();
+    ngOnChanges() {
+        if (this.shouldChange) {
+            this.changeColor();
+            this.shouldChange = false;
+        }
     }
 }

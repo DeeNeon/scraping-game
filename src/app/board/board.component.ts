@@ -1,18 +1,19 @@
-import {Component, OnDestroy} from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
     selector: 'app-board',
     templateUrl: './board.component.html'
 })
 
-export class BoardComponent implements OnDestroy {
-    score: 0;
+export class BoardComponent {
+    score = 0;
+    shouldReset = false;
     constructor() {}
-    ngOnDestroy() {
+    calcScore(e: any) {
+        this.score = e === 1 ? this.score + 1 : this.score - 1;
     }
-    onDrop(e: any) {
-        if (e) {
-            this.score++;
-        }
+
+    getReset(e: any) {
+        this.shouldReset = e;
     }
 }

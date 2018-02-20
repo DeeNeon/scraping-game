@@ -3,13 +3,13 @@
 
     <section class="bombs-container">
         <div class="y-axis" *ngFor="let x of [1,2,3]">
-            <app-bomb *ngFor="let y of [1,2,3,4]"></app-bomb>
+            <app-bomb *ngFor="let y of [1,2,3,4]" (scoreEmitter)="calcScore($event)"></app-bomb>
         </div>
     </section>
 
     <section class="bins-container">
-        <app-bin *ngFor="let x of [1,2,3]"></app-bin>
+        <app-bin *ngFor="let x of [1,2,3]" [reset]="shouldReset" (scoreCounter)="calcScore($event)"></app-bin>
     </section>
 
-    <app-timer></app-timer>
+    <app-timer (reset)="getReset($event)"></app-timer>
 </div>

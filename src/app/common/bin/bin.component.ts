@@ -1,23 +1,20 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-// import {BinService} from './bin.service';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
     selector: 'app-bin',
     templateUrl: './bin.component.html'
 })
 
-export class BinComponent implements OnInit, OnDestroy {
-
-    // constructor(private service: BinService) {
-    // }
-
-    ngOnInit() {
+export class BinComponent {
+    @Output()
+    scoreCounter: EventEmitter<any> = new EventEmitter();
+    @Input()
+    reset = false;
+    constructor() {
     }
-
-    ngOnDestroy() {
-    }
-
-    onDrop(data: any) {
-        console.log(`dropped: ${data}`);
+    onDrop(e: any) {
+        if (Number.isInteger(e)) {
+            this.scoreCounter.emit(e);
+        }
     }
 }

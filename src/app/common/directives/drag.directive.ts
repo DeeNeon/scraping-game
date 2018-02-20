@@ -82,12 +82,11 @@ export class DragDirective implements OnInit {
 
     @Input()
     set appDrag(args: any) {
-        console.log(args);
     }
 
 
     @HostListener('dragstart', ['$event'])
     onDragStart(event) {
-        console.log('dragstart');
+        // console.log('dragstart');
     }
 }
