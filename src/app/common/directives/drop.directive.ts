@@ -25,10 +25,10 @@ export class DropDirective {
 
     @HostListener('drop', ['$event'])
     onDrop(e: any) {
-        console.log(e);
-        // e.target.remove();
-        // console.log('onDrop directive: ', 1);
-        // this.drop.next(1);
-        // e.stopPropagation();
+        // FIX
+        if (Number.isInteger(e)) {
+            console.log(e);
+            this.drop.next(1);
+        }
     }
 }

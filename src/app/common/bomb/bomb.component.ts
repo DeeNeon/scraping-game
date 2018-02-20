@@ -33,8 +33,9 @@ export class BombComponent implements OnInit, OnDestroy {
             .subscribe(() => {
                 this.durationLabel--;
                 if (this.durationLabel === 0) {
-                    this.createBomb();
-                    this.bomb.nativeElement.remove();
+                    // this.bomb.nativeElement.remove();
+                    this.bomb.nativeElement.style.opacity = 0;
+                    this.bomb.nativeElement.style.zIndex = -1;
                     this.scoreEmitter.emit(-1);
                 }
             });

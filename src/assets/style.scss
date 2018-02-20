@@ -55,6 +55,7 @@ body {
   position: relative;
   opacity: 1;
   z-index: 9999;
+  transition: opacity .3s ease;
   &:hover {
     opacity: .8;
   }

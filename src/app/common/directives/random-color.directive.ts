@@ -9,7 +9,6 @@ import {
     selector: '[appRandomColor]'
 })
 export class RandomColorDirective implements OnChanges {
-    // private binColorObs: Subscription;
     @Input()
     shouldChange = false;
 

@@ -2,8 +2,8 @@
     <h2 class="score">Score: {{score}}</h2>
 
     <section class="bombs-container">
-        <div class="y-axis" *ngFor="let x of [1,2,3]">
-            <app-bomb *ngFor="let y of [1,2,3,4]" (scoreEmitter)="calcScore($event)"></app-bomb>
+        <div class="y-axis" *ngFor="let y of y_axis">
+            <app-bomb *ngFor="let x of x_axis" (scoreEmitter)="calcScore($event)"></app-bomb>
         </div>
     </section>
 
