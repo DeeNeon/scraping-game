@@ -42,7 +42,7 @@ body {
   display: flex;
   flex: 1;
   .y-axis {
-    width: 25%;
+    width: 33%;
   }
 }
 
@@ -53,6 +53,7 @@ body {
   height: 3.5rem;
   position: relative;
   opacity: 1;
+  z-index: 9999;
   &:hover {
     opacity: .8;
   }

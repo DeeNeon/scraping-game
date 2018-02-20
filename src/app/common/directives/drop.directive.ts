@@ -6,22 +6,17 @@ import {
     Output,
     Input
 } from '@angular/core';
-import {DragService} from '../drag.service';
-
-// export interface DropTargetOptions {
-//     zone?: string;
-// }
 
 @Directive({
     selector: '[appDrop]'
 })
 export class DropDirective {
     private options: any = {};
-    constructor(private dragService: DragService) {
+    constructor() {
     }
     @Output('drop') drop = new EventEmitter();
     @Input()
-    set dropTarget(options: any) {
+    set appDrop(options: any) {
         if (options) {
             this.options = options;
         }
@@ -30,17 +25,14 @@ export class DropDirective {
     @HostListener('dragenter', ['$event'])
     @HostListener('dragover', ['$event'])
     onDragOver(event) {
-        const { zone = 'zone' } = this.options;
-        if (this.dragService.accepts(zone)) {
-            event.preventDefault();
-        }
+        event.preventDefault();
     }
 
-    @HostListener('drop', ['$event'])
+    @HostListener('window:drop', ['$event'])
     onDrop(event) {
-        console.log(event);
+        console.log('drop');
         // const data =  JSON.parse(event.dataTransfer.getData('Text'));
         //
-        // this.drop.next(data);
+        this.drop.next(event);
     }
 }

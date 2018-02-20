@@ -16,6 +16,7 @@ export class BinComponent implements OnInit, OnDestroy {
 
     ngOnDestroy() {
     }
+
     onDrop(data: any) {
         console.log(`dropped: ${data}`);
     }

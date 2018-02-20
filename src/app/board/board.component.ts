@@ -11,6 +11,8 @@ export class BoardComponent implements OnDestroy {
     ngOnDestroy() {
     }
     onDrop(e: any) {
-        console.log(e);
+        if (e) {
+            this.score++;
+        }
     }
 }
