@@ -21,7 +21,7 @@ export class DragDirective implements OnInit {
     constructor(public element: ElementRef) {}
 
     ngOnInit() {
-        this.element.nativeElement.style.position = 'relative';
+        // this.element.nativeElement.style.position = 'relative';
     }
 
     // @HostListener('mousedown', ['$event'])

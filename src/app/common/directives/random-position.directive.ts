@@ -13,6 +13,8 @@ export class RandomPositionDirective implements AfterViewInit {
 
     ngAfterViewInit() {
         const bombElem = this.el.nativeElement;
-        bombElem.style.left =  Math.floor(Math.random() * 200) + 1 + 'px';
+        bombElem.style.left =  Math.floor(Math.random() * 95) + 1 + '%';
+        bombElem.style.top =  Math.floor(Math.random() * 80) + 1 + '%';
+        bombElem.style.opacity =  1;
     }
 }

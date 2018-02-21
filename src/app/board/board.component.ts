@@ -1,6 +1,4 @@
 import {Component, OnInit, OnDestroy} from '@angular/core';
-import {Observable} from 'rxjs/Observable';
-import {Subscription} from 'rxjs/Subscription';
 
 @Component({
     selector: 'app-board',
@@ -10,21 +8,19 @@ import {Subscription} from 'rxjs/Subscription';
 export class BoardComponent implements OnInit, OnDestroy {
     score = 0;
     shouldReset = false;
-    y_axis = [1, 2, 3, 4];
-    x_axis = [1, 2, 3];
-    private lifeSpanObs: Subscription;
+    x_axis = [];
     constructor() {}
     ngOnInit() {
-        this.lifeSpanObs = Observable.interval(5000)
-            .subscribe(() => {
-                this.y_axis = [1,2,3];
-                this.x_axis = [1,2,3,4];
-            });
+        for (let x = 0; x < 20; x++) {
+            this.x_axis.push(true);
+        }
     }
     ngOnDestroy() {
-        this.lifeSpanObs.unsubscribe();
     }
     calcScore(e: any) {
+        if (e === -1) {
+            this.x_axis.push(1);
+        }
         this.score = e === 1 ? this.score + 1 : this.score - 1;
     }
     getReset(e: any) {
