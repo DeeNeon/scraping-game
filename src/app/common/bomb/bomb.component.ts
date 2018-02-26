@@ -5,7 +5,7 @@ import {Subscription} from 'rxjs/Subscription';
 @Component({
     selector: 'app-bomb',
     template: `
-    <div class="bomb" appRandomPosition [appDrag]="{data: 1}" appRandomColor #bomb>
+    <div class="bomb" appRandomPosition [appDrag]="{data: 1}" appRandomColor #bomb *ngIf="!shouldExplode">
         <span>{{durationLabel}}</span>
     </div>`
 })
@@ -15,7 +15,7 @@ export class BombComponent implements OnInit, OnDestroy {
     durationLabel = 0;
     @Output()
     scoreEmitter: EventEmitter<any> = new EventEmitter();
-    @ViewChild('bomb') bomb: any;
+    shouldExplode = false;
 
     ngOnInit() {
         this.createBomb();
@@ -32,7 +32,7 @@ export class BombComponent implements OnInit, OnDestroy {
             .subscribe(() => {
                 this.durationLabel--;
                 if (this.durationLabel === 0) {
-                    this.bomb.nativeElement.remove();
+                    this.shouldExplode = true;
                     this.scoreEmitter.emit(-1);
                 }
             });

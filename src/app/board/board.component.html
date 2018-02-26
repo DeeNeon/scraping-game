@@ -1,4 +1,8 @@
-<div class="board-wrapper">
+<div *ngIf="isGameOver" class="gg">
+    <h1>GAME OVER</h1>
+    <strong>gg wp</strong>
+</div>
+<div class="board-wrapper" *ngIf="!isGameOver">
     <h2 class="score">Score: {{score}}</h2>
 
     <section class="bombs-container">
