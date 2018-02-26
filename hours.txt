@@ -1,0 +1,21 @@
+Task                                    Time
+local setup                             15m
+setting up angular                      15m
+setting up git                          15m
+testing initial scaffold                15m
+adding bomb component                   1hr
+adding bin component                    30m
+adding scss                             1hr
+create bomb generator                   1hr
+remove unused files                     30m
+add drop directive                      2hr
+research @HostListener(draggable)       2hr
+make drag directive work                2.5hr
+research drop bug output not updating   30m
+fixed sync issues with components       30m
+random bombs weird position fixed       30m
+score interaction                       15m
+bin UX on drop added                    15m
+respawn feature added                   3.5h
+add last UI details                     2.5h
+code clean up                           30m

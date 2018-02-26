@@ -15,11 +15,10 @@ export interface DropTargetOptions {
     selector: '[appDrop]'
 })
 export class DropDirective {
-    options: DropTargetOptions = {};
     @Output('drop') drop = new EventEmitter();
+    options: DropTargetOptions = {};
 
-    constructor(private dragService: DragService) {
-    }
+    constructor(private dragService: DragService) {}
 
     @Input()
     set appDrop(options: DropTargetOptions) {
@@ -41,6 +40,7 @@ export class DropDirective {
     onDrop(event) {
         const data =  event.dataTransfer && JSON.parse(event.dataTransfer.getData('Text'));
         if (data) {
+            // increase bin size by 3px
             event.target.style.width = event.target.clientWidth + 3 + 'px';
             event.target.style.height = event.target.clientHeight + 3 + 'px';
             document.querySelector('#' + data).remove();

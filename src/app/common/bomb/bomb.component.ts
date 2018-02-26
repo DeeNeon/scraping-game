@@ -11,15 +11,16 @@ import {Subscription} from 'rxjs/Subscription';
 })
 
 export class BombComponent implements OnInit, OnDestroy {
+    @Output() scoreEmitter: EventEmitter<any> = new EventEmitter();
+    @Input() threshold = 120;
     lifeSpanObs: Subscription;
     durationLabel = 0;
-    @Output() scoreEmitter: EventEmitter<any> = new EventEmitter();
     shouldExplode = false;
-    @Input() threshold = 120;
     id = 0;
 
     ngOnInit() {
         this.createBomb();
+        // bomb id
         this.id = Math.floor(Math.random() * 9999) + 1;
     }
 

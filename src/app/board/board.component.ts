@@ -16,13 +16,22 @@ export class BoardComponent implements OnInit {
     bombRespawnThreshold = this.gameDuration / 24;
     laps = 0;
 
-    ngOnInit() {
+    generateBombs() {
         for (let x = 0; x < 25; x++) {
             this.x_axis.push(true);
         }
+    }
+
+    ngOnInit() {
+        this.initGame();
+    }
+
+    initGame() {
+        this.generateBombs();
 
         const gameDuration = timer(0, 500).subscribe(val => {
 
+            // Decide when to popup another bomb
             this.currentTime += 0.5;
             if (this.bombRespawnThreshold === 0.5) {
                 this.x_axis.push(true);
@@ -39,20 +48,20 @@ export class BoardComponent implements OnInit {
             }
             // end game
             if (val === 240 || this.score === this.gameDuration) {
-               this.isGameOver = true;
-               gameDuration.unsubscribe();
-           }
+                this.isGameOver = true;
+                gameDuration.unsubscribe();
+            }
         });
     }
 
-    calcScore(e: any) {
-        this.score = e === 1 ? this.score + 1 : this.score - 1;
+    calcScore(event: any) {
+        this.score = event === 1 ? this.score + 1 : this.score - 1;
         if (this.score < 0) {
             this.score = 0;
         }
     }
 
-    getReset(e: any) {
-        this.shouldReset = e;
+    getReset(event: any) {
+        this.shouldReset = event;
     }
 }
