@@ -43,7 +43,8 @@ export class DropDirective {
         if (data) {
             event.target.style.width = event.target.clientWidth + 3 + 'px';
             event.target.style.height = event.target.clientHeight + 3 + 'px';
-            this.drop.next(data);
+            document.querySelector('#' + data).remove();
+            this.drop.next(1);
         }
     }
 }

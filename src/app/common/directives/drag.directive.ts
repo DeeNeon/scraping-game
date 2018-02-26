@@ -35,6 +35,6 @@ export class DragDirective {
     onDragStart(event) {
         const { zone = 'zone', data = {} } = this.options;
         this.dragService.startDrag(zone);
-        event.dataTransfer.setData('Text', JSON.stringify(data));
+        event.dataTransfer.setData('Text', JSON.stringify(event.target.id));
     }
 }

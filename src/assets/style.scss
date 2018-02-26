@@ -23,6 +23,7 @@ body {
   width: 80px;
   height: 80px;
   transition: all .3s ease;
+  background-color: green;
 }
 
 .bottom-timer {
@@ -49,6 +50,7 @@ body {
   animation-duration: 450ms;
   animation-timing-function: linear;
   animation-fill-mode: forwards;
+  background-color: green;
 
   cursor: pointer;
   position: absolute;
