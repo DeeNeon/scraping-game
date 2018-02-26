@@ -6,15 +6,7 @@
 body {
   min-height: 100%;
   font-family: Arial, serif;
-  padding-top: 2rem;
-}
-
-/* UI */
-
-.board-wrapper {
-  //display: flex;
-  //flex-direction: column;
-  //justify-content: space-between;
+  padding-top: 30px;
 }
 
 .bins-container {
@@ -24,11 +16,13 @@ body {
   margin-top: 2rem;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .bin {
-  width: 5rem;
-  height: 5rem;
+  width: 80px;
+  height: 80px;
+  transition: all .3s ease;
 }
 
 .bottom-timer {
@@ -39,13 +33,13 @@ body {
 }
 
 .score {
-  margin-bottom: 3rem;
+  margin-bottom: 20px;
 }
 
 .bombs-container {
   position: relative;
-  padding: 3rem 5rem;
-  width: auto;
+  padding: 1rem;
+  width: 100%;
   height: 450px;
 }
 

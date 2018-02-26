@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output, ViewChild} from '@angular/core';
 
 @Component({
     selector: 'app-bin',
@@ -10,6 +10,7 @@ export class BinComponent {
     scoreCounter: EventEmitter<any> = new EventEmitter();
     @Input()
     reset = false;
+    @ViewChild('bin') binElem;
     constructor() {
     }
     onDrop(e: any) {

@@ -5,7 +5,7 @@ import {Subscription} from 'rxjs/Subscription';
 @Component({
     selector: 'app-bomb',
     template: `
-    <div class="bomb" appRandomPosition appDrag appRandomColor #bomb>
+    <div class="bomb" appRandomPosition [appDrag]="{data: 1}" appRandomColor #bomb>
         <span>{{durationLabel}}</span>
     </div>`
 })
@@ -27,8 +27,6 @@ export class BombComponent implements OnInit, OnDestroy {
 
     createBomb() {
         this.durationLabel = Math.floor(Math.random() * 11) + 5;
-        this.bomb.nativeElement.style.top = Math.floor(Math.random() * 400) + 10;
-        this.bomb.nativeElement.style.left = Math.floor(Math.random() * 400) + 10;
         this.lifeSpanObs =
         Observable.interval(1000)
             .subscribe(() => {
