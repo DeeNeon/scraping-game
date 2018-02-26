@@ -11,24 +11,47 @@ export class BoardComponent implements OnInit {
     shouldReset = false;
     x_axis = [];
     isGameOver = false;
+    currentTime = 0;
+    gameDuration = 120;
+    bombRespawnThreshold = this.gameDuration / 24;
+    laps = 0;
+
     ngOnInit() {
-        for (let x = 0; x < 20; x++) {
+        for (let x = 0; x < 25; x++) {
             this.x_axis.push(true);
         }
 
-        const gameClock = timer(0, 1000).subscribe(val => {
-            if (val === 120 || this.score === 120) {
+        const gameDuration = timer(0, 500).subscribe(val => {
+
+            this.currentTime += 0.5;
+            if (this.bombRespawnThreshold === 0.5) {
+                this.x_axis.push(true);
+            } else {
+                if (this.bombRespawnThreshold === this.currentTime) {
+                    this.laps++;
+                    this.x_axis.push(true);
+                    this.currentTime = 0;
+                }
+                if (this.laps === 2) {
+                    this.laps = 0;
+                    this.bombRespawnThreshold -= 0.5;
+                }
+            }
+            // end game
+            if (val === 240 || this.score === this.gameDuration) {
                this.isGameOver = true;
-               gameClock.unsubscribe();
+               gameDuration.unsubscribe();
            }
         });
     }
+
     calcScore(e: any) {
-        if (e === -1) {
-            this.x_axis.push(1);
-        }
         this.score = e === 1 ? this.score + 1 : this.score - 1;
+        if (this.score < 0) {
+            this.score = 0;
+        }
     }
+
     getReset(e: any) {
         this.shouldReset = e;
     }

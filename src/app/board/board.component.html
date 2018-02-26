@@ -6,7 +6,7 @@
     <h2 class="score">Score: {{score}}</h2>
 
     <section class="bombs-container">
-        <app-bomb *ngFor="let x of x_axis" (scoreEmitter)="calcScore($event)"></app-bomb>
+        <app-bomb *ngFor="let x of x_axis" [threshold]="'120'" (scoreEmitter)="calcScore($event)"></app-bomb>
     </section>
 
     <section class="bins-container">

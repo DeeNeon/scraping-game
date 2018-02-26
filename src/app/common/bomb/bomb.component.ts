@@ -1,4 +1,4 @@
-import {Component, ViewChild, OnInit, OnDestroy, Output, EventEmitter} from '@angular/core';
+import {Component, OnInit, OnDestroy, Output, EventEmitter, Input} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {Subscription} from 'rxjs/Subscription';
 
@@ -13,9 +13,9 @@ import {Subscription} from 'rxjs/Subscription';
 export class BombComponent implements OnInit, OnDestroy {
     lifeSpanObs: Subscription;
     durationLabel = 0;
-    @Output()
-    scoreEmitter: EventEmitter<any> = new EventEmitter();
+    @Output() scoreEmitter: EventEmitter<any> = new EventEmitter();
     shouldExplode = false;
+    @Input() threshold = 120;
 
     ngOnInit() {
         this.createBomb();
